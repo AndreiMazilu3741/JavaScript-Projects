@@ -32,13 +32,13 @@ function placeXOrO (squareNumber) {
             activePlayer = 'X';
         }
         // play placement sound
-        Audio('./media/place.mp3');
+        audio('./media/place.mp3');
         // check if it's computer's turn
         if (activePlayer === 'O') {
             // disable clicking for computer
             disableClick();
             // wait 1 second before placing the image and enable clicking
-            setTimeout (function () { computerTurn(); }, 1000);
+            setTimeout (function () { computersTurn(); }, 1000);
         }
         // return true for computersTurn() to work
         return true;
@@ -155,7 +155,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         // set the width of our line
         c.lineWidth = 10;
         // set the color of our line
-        c.strokeStyle() = 'rgba(70, 255, 33, .8)';
+        c.strokeStyle = 'rgba(70, 255, 33, .8)';
         // draw everything laid above
         c.stroke();
         // check if we've reached the endpoint
