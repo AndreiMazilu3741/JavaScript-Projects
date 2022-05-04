@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <script>
+            $(document).ready(function() { // after the html document is loaded, append the body tag
+                $("html").append(
+                    "<body>\
+                        <div id='container'>\
+                            <div id='inner'>\
+                                <h1>Basic jQuery</h1>\
+                                <p id='1'>Paragraph 1</p>\
+                                <p id='2'>Paragraph 2</p>\
+                                <p id='3'>Paragraph 3</p>\
+                            </div>\
+                        </div><br><br><br>\
+                        <p id='one_two_clicks_alert'>One/two clicks alert </p>\
+                    </body>"
+                );
+                $("#2").css({"color":"blue"}); // change css using jQuery
+                $("#3").click(function() { //hide the h1 tag after paragraph 3 is clicked
+                    $('h1').hide();
+                });
+
+            // Switching handlers using the `.one()` method
+            $( "#one_two_clicks_alert" ).one( "click", firstClick ); 
+            function firstClick() {
+            alert( "You just clicked this for the first time!" );
+  
+            // Now set up the new handler for subsequent clicks;
+            // omit this step if no further click responses are needed
+            $( this ).click( function() { alert( "You have clicked this before!" ); } ); }
+
+            // Hide all paragraphs using a fade out animation over 1.5 seconds
+            $( "p" ).fadeOut( 10500 );
+ 
+            // Show all hidden divs using a fade in animation over 0.75 seconds
+            $( "div.hidden" ).fadeIn( 1750 );
+        });  
+            
+        </script>
+</html>
